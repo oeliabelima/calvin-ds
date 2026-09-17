@@ -17,7 +17,7 @@ describe('TextField', () => {
   it('applies error status classes and marks the input invalid', () => {
     render(<TextField label="E-mail" status="error" helperText="E-mail inválido" />)
     const input = screen.getByLabelText('E-mail')
-    expect(input).toHaveClass('border-error-border')
+    expect(input.parentElement).toHaveClass('border-error-border')
     expect(input).toHaveAttribute('aria-invalid', 'true')
   })
 
@@ -31,5 +31,15 @@ describe('TextField', () => {
   it('disables the input when disabled is set', () => {
     render(<TextField label="E-mail" disabled />)
     expect(screen.getByLabelText('E-mail')).toBeDisabled()
+  })
+
+  it('renders a leading icon when provided', () => {
+    render(<TextField label="Buscar" leadingIcon="MagnifyingGlass" />)
+    expect(screen.getByLabelText('Buscar').parentElement?.querySelector('svg')).toBeInTheDocument()
+  })
+
+  it('defaults to the medium size', () => {
+    render(<TextField label="E-mail" />)
+    expect(screen.getByLabelText('E-mail').parentElement).toHaveClass('h-[48px]')
   })
 })

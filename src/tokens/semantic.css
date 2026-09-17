@@ -4,7 +4,7 @@
   --color-surface: #FFFFFF;
   --color-surface-alt: #FAFAFA;
   --color-surface-raised: #FFFFFF;
-  --color-surface-sunken: #FAFAFA;
+  --color-surface-sunken: #F5F4F4;
   --color-surface-disabled: #F5F4F4;
 
   --color-border: #E7E4E5;
@@ -19,10 +19,10 @@
   --color-brand-text: #E1001E;
   --color-brand-bg-subtle: #FEF0F2;
 
-  --color-success-text: #138650;
-  --color-success-bg-subtle: #E9FCF3;
-  --color-success-border: #138650;
-  --color-success-solid: #138650;
+  --color-success-text: #5E7B06;
+  --color-success-bg-subtle: #F7FDE8;
+  --color-success-border: #5E7B06;
+  --color-success-solid: #5E7B06;
 
   --color-warning-text: #8E5E0B;
   --color-warning-bg-subtle: #FDF5E7;

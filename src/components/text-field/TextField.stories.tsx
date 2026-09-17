@@ -13,6 +13,7 @@ const meta: Meta<typeof TextField> = {
     },
   },
   argTypes: {
+    size: { control: 'select', options: ['md', 'lg'] },
     status: { control: 'select', options: ['neutral', 'success', 'info', 'warning', 'error'] },
   },
 }
@@ -21,7 +22,16 @@ export default meta
 type Story = StoryObj<typeof TextField>
 
 export const Playground: Story = {
-  args: { label: 'E-mail', placeholder: 'voce@mackenzie.br' },
+  args: { label: 'E-mail', placeholder: 'voce@mackenzie.br', size: 'md', leadingIcon: 'EnvelopeSimple' },
+}
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 320 }}>
+      <TextField label="Medium (48px)" size="md" placeholder="voce@mackenzie.br" />
+      <TextField label="Large (56px)" size="lg" placeholder="voce@mackenzie.br" />
+    </div>
+  ),
 }
 
 export const AllStatuses: Story = {
