@@ -73,6 +73,8 @@
   --color-state-hover: var(--color-state-hover);
   --color-state-pressed: var(--color-state-pressed);
   --color-state-focus: var(--color-state-focus);
+  --color-state-hover-brand: var(--color-state-hover-brand);
+  --color-state-pressed-brand: var(--color-state-pressed-brand);
 
   --radius-*: initial;
   --radius-none: var(--radius-none);

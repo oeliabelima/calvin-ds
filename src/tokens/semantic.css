@@ -55,6 +55,12 @@
   --color-state-pressed: rgba(13, 12, 13, 0.12);
   --color-state-focus: rgba(13, 12, 13, 0.12);
 
+  /* Brand-tinted state layers — used on brand-colored surfaces (Button
+     Tertiary/Ghost/Danger/Inverse hover & pressed), where Figma uses an
+     overlay tinted with primary-950 instead of the neutral-950 tint above. */
+  --color-state-hover-brand: rgba(52, 4, 11, 0.08);
+  --color-state-pressed-brand: rgba(52, 4, 11, 0.12);
+
   /* ---- Radius (semantic) ---- */
   --radius-button: 8px;
   --radius-input: 8px;
