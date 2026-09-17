@@ -38,4 +38,17 @@ describe('Card', () => {
     )
     expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
+
+  it('marks a disabled card as aria-disabled and fades it', () => {
+    render(
+      <Card disabled data-testid="card">
+        <CardBody>
+          <CardTitle>Matrículas abertas</CardTitle>
+        </CardBody>
+      </Card>,
+    )
+    const card = screen.getByTestId('card')
+    expect(card).toHaveAttribute('aria-disabled', 'true')
+    expect(card).toHaveClass('opacity-[0.72]')
+  })
 })
