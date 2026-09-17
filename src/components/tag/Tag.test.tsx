@@ -8,13 +8,28 @@ describe('Tag', () => {
     expect(screen.getByText('Novidade')).toBeInTheDocument()
   })
 
-  it('defaults to the neutral tone', () => {
+  it('defaults to the neutral status', () => {
     render(<Tag>Novidade</Tag>)
-    expect(screen.getByText('Novidade')).toHaveClass('bg-surface-alt')
+    expect(screen.getByText('Novidade')).toHaveClass('bg-surface')
   })
 
-  it('applies the requested tone', () => {
-    render(<Tag tone="success">Aprovado</Tag>)
+  it('applies the requested status', () => {
+    render(<Tag status="success">Aprovado</Tag>)
     expect(screen.getByText('Aprovado')).toHaveClass('bg-success-bg-subtle')
+  })
+
+  it('defaults to the small size', () => {
+    render(<Tag>Novidade</Tag>)
+    expect(screen.getByText('Novidade')).toHaveClass('h-[24px]')
+  })
+
+  it('applies the medium size', () => {
+    render(<Tag size="md">Novidade</Tag>)
+    expect(screen.getByText('Novidade')).toHaveClass('h-[32px]')
+  })
+
+  it('omits the indicator dot when showIndicator is false', () => {
+    render(<Tag showIndicator={false}>Novidade</Tag>)
+    expect(screen.getByText('Novidade').querySelector('.rounded-full')).not.toBeInTheDocument()
   })
 })
