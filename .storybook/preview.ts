@@ -3,8 +3,16 @@ import React from 'react'
 import '../src/styles.css'
 
 const preview: Preview = {
+  // Applies to every story project-wide: generates a "Docs" page per
+  // component with an auto-expanded, copy-pasteable source code block
+  // for each variant — without this, Storybook only shows the isolated
+  // canvas view with no way to see or copy the underlying JSX.
+  tags: ['autodocs'],
   parameters: {
     controls: { expanded: true },
+    docs: {
+      source: { state: 'open' },
+    },
     backgrounds: {
       default: 'surface',
       values: [
