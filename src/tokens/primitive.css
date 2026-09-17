@@ -1,0 +1,127 @@
+:root {
+  /* ---- Color primitives ---- */
+  --color-primary-50: #FEF0F2;
+  --color-primary-100: #FEDDE1;
+  --color-primary-200: #FDBAC3;
+  --color-primary-300: #FC8292;
+  --color-primary-400: #FD3550;
+  --color-primary-500: #FF0022;
+  --color-primary-600: #E1001E;
+  --color-primary-700: #B6021A;
+  --color-primary-800: #860315;
+  --color-primary-900: #5C0510;
+  --color-primary-950: #34040B;
+
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F4F4;
+  --color-neutral-200: #E7E4E5;
+  --color-neutral-300: #D6D2D2;
+  --color-neutral-400: #B1AAAB;
+  --color-neutral-500: #8F8486;
+  --color-neutral-600: #706668;
+  --color-neutral-700: #554E4F;
+  --color-neutral-800: #3B3636;
+  --color-neutral-900: #252223;
+  --color-neutral-950: #181616;
+  --color-neutral-1000: #0D0C0D;
+
+  --color-warning-50: #FDF5E7;
+  --color-warning-100: #FAE7C6;
+  --color-warning-300: #F0B44C;
+  --color-warning-500: #C68310;
+  --color-warning-600: #A06A0D;
+  --color-warning-700: #8E5E0B;
+  --color-warning-900: #553807;
+
+  --color-success-50: #E9FCF3;
+  --color-success-100: #C9F7E2;
+  --color-success-300: #55E7A3;
+  --color-success-500: #1BBB70;
+  --color-success-700: #138650;
+  --color-success-900: #0B5030;
+
+  --color-error-50: #F9EFEB;
+  --color-error-100: #F2D3CA;
+  --color-error-300: #D67051;
+  --color-error-500: #9A3B1D;
+  --color-error-700: #682612;
+  --color-error-900: #3B170C;
+
+  --color-info-50: #E9F2FC;
+  --color-info-100: #C9E0F7;
+  --color-info-300: #559EE7;
+  --color-info-500: #1B6BBB;
+  --color-info-700: #134C86;
+  --color-info-900: #0B2E50;
+
+  /* ---- Radius primitives ---- */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ---- Typography primitives ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-xs: 11px;
+  --text-xs--line-height: 16px;
+  --text-sm: 13px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-md: 19px;
+  --text-md--line-height: 28px;
+  --text-lg: 23px;
+  --text-lg--line-height: 32px;
+  --text-xl: 28px;
+  --text-xl--line-height: 36px;
+  --text-2xl: 33px;
+  --text-2xl--line-height: 44px;
+  --text-3xl: 40px;
+  --text-3xl--line-height: 48px;
+  --text-4xl: 48px;
+  --text-4xl--line-height: 56px;
+
+  /* ---- Opacity primitives ---- */
+  --opacity-disabled: 0.4;
+  --opacity-loading: 0.64;
+  --opacity-image-overlay: 0.16;
+
+  /* ---- Spacing primitives ---- */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+
+  /* ---- Stroke primitives (Tailwind border-width scale) ---- */
+  --border-width-hairline: 0.5px;
+  --border-width-thin: 1px;
+  --border-width-regular: 1.5px;
+  --border-width-thick: 2px;
+  --border-width-heavy: 4px;
+
+  /* ---- Icon size (semantic, used by icons/Icon.tsx) ---- */
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 32px;
+}
