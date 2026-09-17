@@ -17,6 +17,21 @@ describe('Avatar', () => {
     render(<Avatar initials="MK" alt="Mackenzie" shape="square" />)
     expect(screen.getByText('MK').closest('[data-shape]')).toHaveAttribute('data-shape', 'square')
   })
+
+  it('defaults to the medium size (40px)', () => {
+    const { container } = render(<Avatar initials="EL" alt="Elia Lima" />)
+    expect(container.firstChild).toHaveStyle({ width: '40px', height: '40px' })
+  })
+
+  it('renders a presence dot when showStatus is set', () => {
+    const { container } = render(<Avatar initials="EL" alt="Elia Lima" showStatus />)
+    expect(container.querySelector('.bg-success-solid')).toBeInTheDocument()
+  })
+
+  it('omits the presence dot by default', () => {
+    const { container } = render(<Avatar initials="EL" alt="Elia Lima" />)
+    expect(container.querySelector('.bg-success-solid')).not.toBeInTheDocument()
+  })
 })
 
 describe('AvatarGroup', () => {

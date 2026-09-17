@@ -8,12 +8,12 @@ const meta: Meta<typeof Avatar> = {
     docs: {
       description: {
         component:
-          'Avatar responsivo com imagem, iniciais ou ícone. Círculo representa pessoas; quadrado representa entidades (ex. instituições, times).',
+          'Avatar responsivo com imagem, iniciais ou ícone (fallback). Círculo representa pessoas; quadrado representa entidades (ex. instituições, times). Cinco tamanhos: XS (24px), Small (32px), Medium (40px), Large (56px), XL (72px).',
       },
     },
   },
   argTypes: {
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
     shape: { control: 'select', options: ['circle', 'square'] },
   },
 }
@@ -25,6 +25,18 @@ export const Playground: Story = {
   args: { initials: 'EL', alt: 'Elia Lima', size: 'md', shape: 'circle' },
 }
 
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Avatar initials="EL" alt="Elia Lima" size="xs" />
+      <Avatar initials="EL" alt="Elia Lima" size="sm" />
+      <Avatar initials="EL" alt="Elia Lima" size="md" />
+      <Avatar initials="EL" alt="Elia Lima" size="lg" />
+      <Avatar initials="EL" alt="Elia Lima" size="xl" />
+    </div>
+  ),
+}
+
 export const Shapes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16 }}>
@@ -34,14 +46,27 @@ export const Shapes: Story = {
   ),
 }
 
+export const IconFallback: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 16 }}>
+      <Avatar alt="Sem foto nem iniciais" size="md" />
+      <Avatar alt="Sem foto nem iniciais" size="lg" />
+    </div>
+  ),
+}
+
+export const WithStatus: Story = {
+  args: { initials: 'EL', alt: 'Elia Lima (online)', size: 'md', showStatus: true },
+}
+
 export const Group: Story = {
   render: () => (
-    <AvatarGroup max={3}>
-      <Avatar initials="A" alt="Ana" />
-      <Avatar initials="B" alt="Bruno" />
-      <Avatar initials="C" alt="Carla" />
-      <Avatar initials="D" alt="Diego" />
-      <Avatar initials="E" alt="Elis" />
+    <AvatarGroup max={3} size="sm">
+      <Avatar initials="A" alt="Ana" size="sm" />
+      <Avatar initials="B" alt="Bruno" size="sm" />
+      <Avatar initials="C" alt="Carla" size="sm" />
+      <Avatar initials="D" alt="Diego" size="sm" />
+      <Avatar initials="E" alt="Elis" size="sm" />
     </AvatarGroup>
   ),
 }
