@@ -94,6 +94,11 @@
   --radius-tag: var(--radius-tag);
 
   --spacing-*: initial;
+  /* Explicit 0 so inset/position utilities (top-0, right-0, bottom-0,
+     left-0, inset-0, inset-x-0, inset-y-0, translate-x-0, ...) resolve —
+     Tailwind v4 derives them from the spacing scale even for the zero
+     case, and `--spacing-*: initial` wipes that scale entirely. */
+  --spacing-0: 0px;
   --spacing-4: var(--spacing-4);
   --spacing-8: var(--spacing-8);
   --spacing-16: var(--spacing-16);

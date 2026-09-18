@@ -63,14 +63,14 @@ export function Alert({
     <div className={cn(alertVariants({ status, layout }), className)} role="status">
       <div className={cn('flex gap-[12px]', isStacked ? 'w-full items-start' : 'flex-1 items-center')}>
         <span className={cn('flex shrink-0 items-center justify-center rounded-avatar p-4', statusBadgeClass[key])}>
-          <Icon name={statusIcon[key]} weight="fill" aria-hidden className="text-text-on-brand" style={{ width: 16, height: 16 }} />
+          <Icon name={statusIcon[key]} weight="fill" aria-hidden className="text-icon-on-brand" style={{ width: 16, height: 16 }} />
         </span>
         <div className="flex flex-1 flex-col gap-4">
           <p className="text-base font-semibold">{title}</p>
           <p className="text-sm">{message}</p>
         </div>
         {isStacked && onDismiss && (
-          <button type="button" onClick={onDismiss} aria-label="Fechar" className="shrink-0 text-2xl leading-none">
+          <button type="button" onClick={onDismiss} aria-label="Fechar" className="shrink-0 text-[22px] font-normal leading-normal">
             ×
           </button>
         )}
@@ -82,7 +82,7 @@ export function Alert({
           </button>
         )}
         {!isStacked && onDismiss && (
-          <button type="button" onClick={onDismiss} aria-label="Fechar" className="text-2xl leading-none">
+          <button type="button" onClick={onDismiss} aria-label="Fechar" className="text-[22px] font-normal leading-normal">
             ×
           </button>
         )}

@@ -89,6 +89,7 @@ export interface AvatarGroupProps {
 }
 
 const groupOverlapPx: Record<'sm' | 'md' | 'lg', number> = { sm: 8, md: 10, lg: 14 }
+const groupOverflowPaddingPx: Record<'sm' | 'md' | 'lg', number> = { sm: 6, md: 7, lg: 10 }
 
 export function AvatarGroup({ max = 5, size = 'sm', shape = 'circle', children }: AvatarGroupProps) {
   const items = React.Children.toArray(children)
@@ -114,7 +115,7 @@ export function AvatarGroup({ max = 5, size = 'sm', shape = 'circle', children }
             'flex shrink-0 items-center justify-center border-2 border-surface bg-brand-bg-subtle text-sm text-brand-text',
             avatarRadiusClass(shape),
           )}
-          style={{ height: px, minWidth: px, paddingInline: overlap < 12 ? 6 : 10 }}
+          style={{ height: px, minWidth: px, paddingInline: groupOverflowPaddingPx[size] }}
         >
           +{remaining}
         </div>

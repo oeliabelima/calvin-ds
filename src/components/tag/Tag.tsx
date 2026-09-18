@@ -18,8 +18,8 @@ const tagVariants = cva('inline-flex items-center rounded-tag border', {
       error: 'bg-error-bg-subtle border-error-border text-error-text',
     },
     size: {
-      sm: 'h-[24px] px-8 gap-[6px] text-xs font-medium tracking-[0.5px]',
-      md: 'h-[32px] px-12 gap-[6px] text-base font-normal',
+      sm: 'h-[24px] px-[8px] gap-[6px] text-xs font-medium tracking-[0.5px]',
+      md: 'h-[32px] px-[12px] gap-[6px] text-base font-normal',
     },
   },
   defaultVariants: { status: 'neutral', size: 'sm' },
