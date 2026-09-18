@@ -61,6 +61,6 @@ export function CardMeta({ className, ...props }: React.HTMLAttributes<HTMLParag
   return <p className={cn('text-base text-text-secondary', className)} {...props} />
 }
 
-export function CardAction({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
+export function CardActionLabel({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className={cn('text-base font-semibold text-brand-text', className)} {...props} />
 }

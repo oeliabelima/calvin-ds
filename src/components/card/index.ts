@@ -1,6 +1,6 @@
 export {
   Card,
-  CardAction,
+  CardActionLabel,
   CardBody,
   CardDescription,
   CardEyebrow,

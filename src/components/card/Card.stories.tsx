@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Card, CardAction, CardBody, CardDescription, CardEyebrow, CardMedia, CardMeta, CardTitle } from './Card'
+import { Card, CardActionLabel, CardBody, CardDescription, CardEyebrow, CardMedia, CardMeta, CardTitle } from './Card'
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -8,7 +8,7 @@ const meta: Meta<typeof Card> = {
     docs: {
       description: {
         component:
-          'Card responsivo para conteúdo textual ou editorial com mídia. Componha com CardMedia (opcional), CardBody, CardEyebrow, CardTitle, CardDescription, CardMeta e CardAction — omitir CardMedia gera o layout sem imagem. O card em si aceita foco/hover/disabled quando usado como acionável.',
+          'Card responsivo para conteúdo textual ou editorial com mídia. Componha com CardMedia (opcional), CardBody, CardEyebrow, CardTitle, CardDescription, CardMeta e CardActionLabel — omitir CardMedia gera o layout sem imagem. O card em si aceita foco/hover/disabled quando usado como acionável.',
       },
     },
   },
@@ -28,7 +28,7 @@ export const WithMedia: Story = {
           Conteúdo editorial com hierarquia clara, leitura confortável e comportamento responsivo.
         </CardDescription>
         <CardMeta>5 min de leitura</CardMeta>
-        <CardAction>Conhecer conteúdo</CardAction>
+        <CardActionLabel>Conhecer conteúdo</CardActionLabel>
       </CardBody>
     </Card>
   ),
