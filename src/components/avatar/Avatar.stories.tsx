@@ -37,6 +37,19 @@ export const Sizes: Story = {
   ),
 }
 
+export const WithPhoto: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Avatar src="https://placehold.co/48x48" alt="Elia Lima" size="xs" />
+      <Avatar src="https://placehold.co/64x64" alt="Elia Lima" size="sm" />
+      <Avatar src="https://placehold.co/80x80" alt="Elia Lima" size="md" />
+      <Avatar src="https://placehold.co/112x112" alt="Elia Lima" size="lg" />
+      <Avatar src="https://placehold.co/144x144" alt="Elia Lima" size="xl" />
+      <Avatar src="https://placehold.co/80x80" alt="Mackenzie" size="md" shape="square" />
+    </div>
+  ),
+}
+
 export const Shapes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16 }}>
@@ -67,6 +80,19 @@ export const Group: Story = {
       <Avatar initials="C" alt="Carla" size="sm" />
       <Avatar initials="D" alt="Diego" size="sm" />
       <Avatar initials="E" alt="Elis" size="sm" />
+    </AvatarGroup>
+  ),
+}
+
+export const GroupWithPhotos: Story = {
+  render: () => (
+    <AvatarGroup max={4} size="md">
+      <Avatar src="https://placehold.co/80x80" alt="Ana" size="md" />
+      <Avatar initials="BR" alt="Bruno" size="md" />
+      <Avatar src="https://placehold.co/80x80" alt="Carla" size="md" />
+      <Avatar alt="Sem foto nem iniciais" size="md" />
+      <Avatar initials="EL" alt="Elis" size="md" />
+      <Avatar initials="FA" alt="Fábio" size="md" />
     </AvatarGroup>
   ),
 }
