@@ -37,6 +37,16 @@ const statusSolidClass: Record<'neutral' | 'success' | 'info' | 'warning' | 'err
   error: 'text-error-solid',
 }
 
+// Same interaction language as Alert: the action link underlines on
+// hover/focus/active per the real "Link / Standalone" Figma states
+// (node 603:45), and the close button gets the library-wide
+// border-2/focus-visible:border-border-focus treatment plus a neutral
+// circular hover/pressed backdrop.
+const actionLinkClass =
+  'flex items-center gap-4 self-start rounded-xs border-2 border-transparent text-sm font-bold underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:border-border-focus active:underline'
+const closeButtonClass =
+  'flex size-[24px] shrink-0 items-center justify-center rounded-full border-2 border-transparent hover:bg-state-hover focus-visible:outline-none focus-visible:border-border-focus active:bg-state-pressed'
+
 export interface ToastProps extends VariantProps<typeof toastVariants> {
   message: string
   actionLabel?: string
@@ -69,12 +79,12 @@ export function Toast({
       <div className="flex flex-1 flex-col gap-8">
         <div className="flex items-start gap-[12px]">
           <p className="flex-1 text-sm">{message}</p>
-          <button type="button" onClick={onDismiss} aria-label="Fechar" className="shrink-0">
+          <button type="button" onClick={onDismiss} aria-label="Fechar" className={closeButtonClass}>
             <Icon name="X" aria-hidden className={statusSolidClass[key]} style={{ width: 20, height: 20 }} />
           </button>
         </div>
         {hasStatusIcon && onAction && (
-          <button type="button" onClick={onAction} className="flex items-center gap-4 self-start text-sm font-bold">
+          <button type="button" onClick={onAction} className={actionLinkClass}>
             {actionLabel}
             <Icon name="ArrowUpRight" aria-hidden className={statusSolidClass[key]} style={{ width: 20, height: 20 }} />
           </button>

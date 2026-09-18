@@ -40,6 +40,18 @@ const statusBadgeClass: Record<'neutral' | 'success' | 'info' | 'warning' | 'err
   error: 'bg-error-solid',
 }
 
+// "Ver detalhes" reuses the real Figma "Link / Standalone" states
+// (node 603:45): underlined on hover/focus/active, not by default.
+// The close "×" has no dedicated Figma states component, so it gets
+// the same border-2/focus-visible:border-border-focus treatment used
+// by every other interactive element in this library (Button,
+// IconButton, Checkbox, ...), plus a neutral circular hover/pressed
+// backdrop since Alert's background color varies per status.
+const actionLinkClass =
+  'rounded-xs border-2 border-transparent text-sm font-semibold underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:border-border-focus active:underline'
+const closeButtonClass =
+  'flex size-[24px] shrink-0 items-center justify-center rounded-full border-2 border-transparent text-[22px] font-normal hover:bg-state-hover focus-visible:outline-none focus-visible:border-border-focus active:bg-state-pressed'
+
 export interface AlertProps extends VariantProps<typeof alertVariants> {
   title: string
   message: string
@@ -73,19 +85,19 @@ export function Alert({
           <p className="text-sm">{message}</p>
         </div>
         {isStacked && onDismiss && (
-          <button type="button" onClick={onDismiss} aria-label="Fechar" className="shrink-0 text-[22px] font-normal leading-normal">
+          <button type="button" onClick={onDismiss} aria-label="Fechar" className={cn('shrink-0', closeButtonClass)}>
             ×
           </button>
         )}
       </div>
       <div className={cn('flex shrink-0 items-center gap-16', isStacked && 'pl-[36px]')}>
         {onAction && (
-          <button type="button" onClick={onAction} className="text-sm font-semibold">
+          <button type="button" onClick={onAction} className={actionLinkClass}>
             {actionLabel}
           </button>
         )}
         {!isStacked && onDismiss && (
-          <button type="button" onClick={onDismiss} aria-label="Fechar" className="text-[22px] font-normal leading-normal">
+          <button type="button" onClick={onDismiss} aria-label="Fechar" className={closeButtonClass}>
             ×
           </button>
         )}
