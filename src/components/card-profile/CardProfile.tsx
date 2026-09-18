@@ -15,7 +15,12 @@ import { cn } from '../../lib/utils'
 // internally). `photo` is a separate slot only used by Feature, since
 // Feature's edge-to-edge rectangular treatment is structurally
 // different from the circular avatar treatment, not just a differently
-// filled circle. Title reuses the same "heading-3" mix already found
+// filled circle. Both slots get a `grayscale` filter when disabled —
+// same fix as CardAction's icon: a consumer-controlled slot's own
+// explicit color (e.g. Avatar's brand-red initials) is set directly on
+// its elements and wins over the card's opacity dimming alone, so a
+// filter is needed to force it visually neutral. Title reuses the same
+// "heading-3" mix already found
 // in every other new card this session: text-2xl (33px) paired with a
 // 36px line-height and -1.5px tracking. Disabled uses the 40%-opacity
 // recipe (bg-surface-disabled + opacity-40 + text-disabled per field),
@@ -111,7 +116,11 @@ export function CardProfile({
         )}
         {...props}
       >
-        {photo && <div className="h-full w-[195px] shrink-0 self-stretch overflow-hidden">{photo}</div>}
+        {photo && (
+          <div className={cn('h-full w-[195px] shrink-0 self-stretch overflow-hidden', disabled && 'grayscale')}>
+            {photo}
+          </div>
+        )}
         <div className="flex flex-1 flex-col items-start justify-center gap-8 p-24">{content}</div>
       </div>
     )
@@ -122,7 +131,7 @@ export function CardProfile({
       aria-disabled={disabled}
       className={cn(
         'flex overflow-hidden rounded-card border border-border bg-surface p-24 transition-colors',
-        isHorizontal ? 'w-[520px] flex-row items-start gap-20' : 'w-[340px] flex-col items-center gap-20',
+        isHorizontal ? 'w-[520px] flex-row items-start gap-[20px]' : 'w-[340px] flex-col items-center gap-[20px]',
         !disabled &&
           'hover:bg-state-hover-brand focus-visible:border-2 focus-visible:border-border-focus focus-visible:bg-state-pressed-brand active:bg-state-pressed-brand focus-visible:outline-none',
         disabled && 'pointer-events-none bg-surface-disabled opacity-40',
@@ -130,7 +139,7 @@ export function CardProfile({
       )}
       {...props}
     >
-      {avatar}
+      {avatar && <div className={cn('shrink-0', disabled && 'grayscale')}>{avatar}</div>}
       {content}
     </div>
   )
