@@ -14,8 +14,8 @@ const alertVariants = cva('flex gap-16 rounded-[12px] border px-[20px] py-16', {
       error: 'bg-error-bg-subtle border-error-border text-error-text',
     },
     layout: {
-      inline: 'items-center',
-      stacked: 'flex-col items-start',
+      inline: 'w-[720px] items-center',
+      stacked: 'w-[480px] flex-col items-start',
     },
   },
   defaultVariants: { status: 'neutral', layout: 'inline' },
