@@ -4,11 +4,11 @@ import { Icon, type IconName } from '../../icons'
 
 // Read directly from the real Figma "Toast" component (node 554:2 ->
 // frame 554:50, single-instance frame 554:26 for the exact Success
-// screenshot). Two details only get-variable-defs revealed, not the
-// screenshot alone: the close (X) icon always uses the status's
-// "-solid" token (not "-text" — they only coincide for Success), and
-// the trailing action-link arrow is always brand red regardless of
-// status, while the action label text stays status-colored.
+// screenshot, re-verified 2026-09-18 after the designer updated the
+// Figma file). Status icons use the outline/regular weight (not
+// "fill") — Figma renders them hollow, not as a solid disc — and both
+// the close (X) icon and the action-link arrow use the status's
+// "-solid" token (not "-text" — they only coincide for Success).
 const toastVariants = cva('flex w-[400px] items-start gap-[12px] rounded-card p-16 shadow-[0px_4px_12px_-2px_var(--color-shadow-3)]', {
   variants: {
     status: {
@@ -61,7 +61,6 @@ export function Toast({
       {hasStatusIcon && (
         <Icon
           name={statusIcon[key]}
-          weight="fill"
           aria-hidden
           className={cn('shrink-0', statusSolidClass[key])}
           style={{ width: 20, height: 20 }}
@@ -77,7 +76,7 @@ export function Toast({
         {hasStatusIcon && onAction && (
           <button type="button" onClick={onAction} className="flex items-center gap-4 self-start text-sm font-bold">
             {actionLabel}
-            <Icon name="ArrowUpRight" aria-hidden className="text-brand" style={{ width: 20, height: 20 }} />
+            <Icon name="ArrowUpRight" aria-hidden className={statusSolidClass[key]} style={{ width: 20, height: 20 }} />
           </button>
         )}
       </div>

@@ -3,7 +3,10 @@ import { cn } from '../../lib/utils'
 import { Icon, type IconName } from '../../icons'
 
 // Read directly from the real Figma "Alert" component (node 553:2 ->
-// frame 553:105).
+// frame 553:105). Status icons are outline/regular weight, not "fill"
+// — the badge circle already provides the solid color, so a filled
+// icon on top doubles up as a visible white disc (confirmed by
+// comparing rendered output against get_screenshot on 553:33/553:15).
 const alertVariants = cva('flex gap-16 rounded-[12px] border px-[20px] py-16', {
   variants: {
     status: {
@@ -63,7 +66,7 @@ export function Alert({
     <div className={cn(alertVariants({ status, layout }), className)} role="status">
       <div className={cn('flex gap-[12px]', isStacked ? 'w-full items-start' : 'flex-1 items-center')}>
         <span className={cn('flex shrink-0 items-center justify-center rounded-avatar p-4', statusBadgeClass[key])}>
-          <Icon name={statusIcon[key]} weight="fill" aria-hidden className="text-icon-on-brand" style={{ width: 16, height: 16 }} />
+          <Icon name={statusIcon[key]} aria-hidden className="text-icon-on-brand" style={{ width: 16, height: 16 }} />
         </span>
         <div className="flex flex-1 flex-col gap-4">
           <p className="text-base font-semibold">{title}</p>

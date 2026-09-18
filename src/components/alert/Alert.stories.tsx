@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Alert } from './Alert'
 
@@ -32,16 +33,33 @@ export const Playground: Story = {
   },
 }
 
+const allStatusesSeed = [
+  { status: 'neutral', title: 'Neutral', message: 'Mensagem neutra.' },
+  { status: 'success', title: 'Success', message: 'Operação concluída.' },
+  { status: 'info', title: 'Info', message: 'Uma informação relevante.' },
+  { status: 'warning', title: 'Warning', message: 'Atenção com isso.' },
+  { status: 'error', title: 'Error', message: 'Algo deu errado.' },
+] as const
+
 export const AllStatuses: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 720 }}>
-      <Alert status="neutral" title="Neutral" message="Mensagem neutra." onDismiss={() => {}} />
-      <Alert status="success" title="Success" message="Operação concluída." onDismiss={() => {}} />
-      <Alert status="info" title="Info" message="Uma informação relevante." onDismiss={() => {}} />
-      <Alert status="warning" title="Warning" message="Atenção com isso." onDismiss={() => {}} />
-      <Alert status="error" title="Error" message="Algo deu errado." onDismiss={() => {}} />
-    </div>
-  ),
+  render: () => {
+    const [dismissed, setDismissed] = useState<string[]>([])
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 720 }}>
+        {allStatusesSeed
+          .filter((item) => !dismissed.includes(item.status))
+          .map((item) => (
+            <Alert
+              key={item.status}
+              status={item.status}
+              title={item.title}
+              message={item.message}
+              onDismiss={() => setDismissed((prev) => [...prev, item.status])}
+            />
+          ))}
+      </div>
+    )
+  },
 }
 
 export const Stacked: Story = {
