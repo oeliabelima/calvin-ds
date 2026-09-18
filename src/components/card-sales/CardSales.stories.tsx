@@ -42,7 +42,7 @@ export const Playground: Story = {
 
 export const Layouts: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <CardSales
         image={image}
         title="Curso de curta duração"

@@ -10,7 +10,13 @@ import { cn } from '../../lib/utils'
 // 44px line-height) and -1.5px tracking — confirmed via Figma's own
 // generated code, not assumed. Icon and chip are fully consumer-
 // controlled slots (Figma exposes both as instance-swap/boolean
-// props, not values this component derives). Interactive states reuse
+// props, not values this component derives) — but Figma's real
+// Disabled state swaps in a gray icon asset, so a `grayscale` filter
+// is applied to the icon wrapper when disabled: the icon's own
+// explicit color class (e.g. text-brand) is set directly on the SVG
+// and wins over any inherited color from an ancestor, so recoloring
+// via inheritance wouldn't work — a filter transforms rendered pixels
+// regardless of the child's own color. Interactive states reuse
 // the same brand-tinted overlay + border-focus pattern already
 // established in Card/CardMetric. Disabled drops ALL per-slot color
 // (eyebrow's brand-text and action's brand-text both become
@@ -77,6 +83,7 @@ export function CardAction({
       {action}
     </p>
   )
+  const iconEl = icon && <div className={cn('shrink-0', disabled && 'grayscale')}>{icon}</div>
 
   return (
     <div
@@ -93,7 +100,7 @@ export function CardAction({
     >
       {isHorizontal ? (
         <>
-          {icon && <div className="shrink-0">{icon}</div>}
+          {iconEl}
           <div className="flex min-w-0 flex-1 flex-col gap-8">
             <div className="flex w-full items-center gap-8">
               {eyebrowEl}
@@ -107,7 +114,7 @@ export function CardAction({
       ) : (
         <>
           <div className="flex w-full items-center justify-between">
-            {icon}
+            {iconEl}
             {chip}
           </div>
           <div className="flex w-full flex-col gap-8">

@@ -58,7 +58,7 @@ export function CardSales({
       </div>
       <div
         className={cn(
-          'flex flex-col items-start gap-8 p-20',
+          'flex flex-col items-start gap-8 p-[20px]',
           isCompact ? 'min-w-0 flex-1' : 'w-full',
         )}
       >
