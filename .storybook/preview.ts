@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react'
 import React from 'react'
 import '../src/styles.css'
+import { CalvinDocsPage } from '../src/foundations/usage/CalvinDocsPage'
 
 const preview: Preview = {
   // Applies to every story project-wide: generates a "Docs" page per
@@ -12,6 +13,7 @@ const preview: Preview = {
     controls: { expanded: true },
     docs: {
       source: { state: 'open' },
+      page: CalvinDocsPage,
     },
     backgrounds: {
       default: 'surface',

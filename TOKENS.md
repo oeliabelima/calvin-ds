@@ -44,3 +44,14 @@ linha correspondente em `styles.css`.
 Tokens semânticos têm uma versão light (padrão) e uma dark, dentro de
 `semantic.css`. Edite os dois blocos se a mudança precisa valer nos dois
 modos; edite só um se for uma diferença intencional entre light e dark.
+
+## Onde ver os tokens no Storybook
+
+- **Foundations → Primitive Tokens** — toda a paleta/escalas de `primitive.css`, com busca e botão para copiar `var(--token)`.
+- **Foundations → Semantic Tokens** — tudo de `semantic.css` com valores Light e Dark lado a lado e o primitivo por trás de cada cor (ex. `brand → primary-600`).
+- **Foundations → Token Usage** — visão geral de todos os componentes: quantos tokens cada um usa, valores fixos (arbitrários) e problemas, mais um índice "token → componentes".
+- **Docs de cada componente** — a seção **Tokens usados** no fim da página lista os tokens daquele componente (com light/dark, primitivo e as classes que os usam).
+
+As páginas leem direto dos arquivos CSS, então refletem qualquer edição de token na hora. A seção "Tokens usados" vem de `npm run tokens:usage` (análise estática das classes Tailwind de `src/components/`); ele roda automaticamente antes de `npm run storybook` e `npm run build-storybook`, e o resultado (`src/foundations/usage/token-usage.generated.json`) fica versionado.
+
+O extrator também sinaliza **problemas**: classes numéricas fora da escala registrada (ex. `p-20`, que não gera CSS nenhum) e cores hardcoded. Os testes (`npm run test`) falham se algum componente introduzir uma classe fora da escala.

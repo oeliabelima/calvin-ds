@@ -8,6 +8,9 @@
     "build": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "tokens:usage": "node scripts/extract-token-usage.mjs",
+    "prestorybook": "npm run tokens:usage",
+    "prebuild-storybook": "npm run tokens:usage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
