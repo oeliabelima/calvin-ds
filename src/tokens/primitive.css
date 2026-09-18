@@ -124,4 +124,7 @@
   --icon-size-md: 20px;
   --icon-size-lg: 24px;
   --icon-size-xl: 32px;
+
+  /* ---- Shadow primitives (Figma "Shadow" collection, primary-950 tint) ---- */
+  --color-shadow-3: rgba(52, 4, 11, 0.24);
 }

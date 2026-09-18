@@ -45,6 +45,8 @@
   --color-text-placeholder: #8F8486;
   --color-text-on-brand: #FFFFFF;
   --color-text-inverse: #FFFFFF;
+  --color-text-link: #E1001E;
+  --color-text-link-hover: #B6021A;
 
   --color-icon-primary: var(--color-text-primary);
   --color-icon-secondary: var(--color-text-secondary);
@@ -123,6 +125,8 @@
     --color-text-placeholder: #8F8486;
     --color-text-on-brand: #FFFFFF;
     --color-text-inverse: #0D0C0D;
+    --color-text-link: #FC8292;
+    --color-text-link-hover: #FF0022;
 
     --color-state-hover: rgba(255, 255, 255, 0.08);
     --color-state-pressed: rgba(255, 255, 255, 0.12);
@@ -169,6 +173,8 @@
   --color-text-placeholder: #8F8486;
   --color-text-on-brand: #FFFFFF;
   --color-text-inverse: #0D0C0D;
+  --color-text-link: #FC8292;
+  --color-text-link-hover: #FF0022;
   --color-state-hover: rgba(255, 255, 255, 0.08);
   --color-state-pressed: rgba(255, 255, 255, 0.12);
   --color-state-focus: rgba(255, 255, 255, 0.12);

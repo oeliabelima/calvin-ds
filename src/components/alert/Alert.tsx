@@ -4,7 +4,7 @@ import { Icon, type IconName } from '../../icons'
 
 // Read directly from the real Figma "Alert" component (node 553:2 ->
 // frame 553:105).
-const alertVariants = cva('flex gap-16 rounded-[12px] border px-20 py-16', {
+const alertVariants = cva('flex gap-16 rounded-[12px] border px-[20px] py-16', {
   variants: {
     status: {
       neutral: 'bg-surface border-border text-icon-primary',
@@ -61,7 +61,7 @@ export function Alert({
 
   return (
     <div className={cn(alertVariants({ status, layout }), className)} role="status">
-      <div className={cn('flex gap-12', isStacked ? 'w-full items-start' : 'flex-1 items-center')}>
+      <div className={cn('flex gap-[12px]', isStacked ? 'w-full items-start' : 'flex-1 items-center')}>
         <span className={cn('flex shrink-0 items-center justify-center rounded-avatar p-4', statusBadgeClass[key])}>
           <Icon name={statusIcon[key]} weight="fill" aria-hidden className="text-text-on-brand" style={{ width: 16, height: 16 }} />
         </span>
@@ -75,7 +75,7 @@ export function Alert({
           </button>
         )}
       </div>
-      <div className={cn('flex shrink-0 items-center gap-16', isStacked && 'pl-36')}>
+      <div className={cn('flex shrink-0 items-center gap-16', isStacked && 'pl-[36px]')}>
         {onAction && (
           <button type="button" onClick={onAction} className="text-sm font-semibold">
             {actionLabel}

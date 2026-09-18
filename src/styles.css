@@ -66,6 +66,8 @@
   --color-text-placeholder: var(--color-text-placeholder);
   --color-text-on-brand: var(--color-text-on-brand);
   --color-text-inverse: var(--color-text-inverse);
+  --color-text-link: var(--color-text-link);
+  --color-text-link-hover: var(--color-text-link-hover);
   --color-icon-primary: var(--color-icon-primary);
   --color-icon-secondary: var(--color-icon-secondary);
   --color-icon-disabled: var(--color-icon-disabled);

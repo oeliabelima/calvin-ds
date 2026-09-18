@@ -58,7 +58,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                     : 'border-border-strong bg-surface',
               )}
             >
-              {!disabled && indeterminate && <span className="h-[2px] w-[12px] rounded-full bg-text-on-brand" />}
+              {!disabled && indeterminate && <span className="h-[2px] w-[12px] rounded-full bg-icon-on-brand" />}
               {!disabled && !indeterminate && checked && (
                 <Icon name="Check" weight="bold" aria-hidden style={{ width: 16, height: 16 }} className="text-text-on-brand" />
               )}

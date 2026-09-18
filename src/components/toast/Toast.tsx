@@ -4,7 +4,7 @@ import { Icon, type IconName } from '../../icons'
 
 // Read directly from the real Figma "Toast" component (node 554:2 ->
 // frame 554:50).
-const toastVariants = cva('flex w-[400px] gap-12 rounded-card p-16 shadow-[0px_4px_6px_var(--color-shadow-3)]', {
+const toastVariants = cva('flex w-[400px] gap-[12px] rounded-card p-16 shadow-[0px_4px_12px_-2px_var(--color-shadow-3)]', {
   variants: {
     status: {
       neutral: 'bg-surface-raised text-text-primary',
