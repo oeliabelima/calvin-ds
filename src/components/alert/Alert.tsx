@@ -3,10 +3,12 @@ import { cn } from '../../lib/utils'
 import { Icon, type IconName } from '../../icons'
 
 // Read directly from the real Figma "Alert" component (node 553:2 ->
-// frame 553:105). Status icons are outline/regular weight, not "fill"
-// — the badge circle already provides the solid color, so a filled
-// icon on top doubles up as a visible white disc (confirmed by
-// comparing rendered output against get_screenshot on 553:33/553:15).
+// frame 553:105), re-verified 2026-09-18 after the designer removed
+// the solid-color badge background: the status icon now sits directly
+// on the alert's own background, at 24px (not 16px), colored with the
+// status's "-solid" token (confirmed via get_variable_defs on
+// 544:3308/544:3371/544:3301 — same token family the close button
+// already used). Status icons are outline/regular weight, not "fill".
 const alertVariants = cva('flex gap-16 rounded-[12px] border px-[20px] py-16', {
   variants: {
     status: {
@@ -32,12 +34,12 @@ const statusIcon: Record<'neutral' | 'success' | 'info' | 'warning' | 'error', I
   error: 'XCircle',
 }
 
-const statusBadgeClass: Record<'neutral' | 'success' | 'info' | 'warning' | 'error', string> = {
-  neutral: 'bg-icon-primary',
-  success: 'bg-success-solid',
-  info: 'bg-info-solid',
-  warning: 'bg-warning-solid',
-  error: 'bg-error-solid',
+const statusIconClass: Record<'neutral' | 'success' | 'info' | 'warning' | 'error', string> = {
+  neutral: 'text-icon-primary',
+  success: 'text-success-solid',
+  info: 'text-info-solid',
+  warning: 'text-warning-solid',
+  error: 'text-error-solid',
 }
 
 // "Ver detalhes" reuses the real Figma "Link / Standalone" states
@@ -77,8 +79,8 @@ export function Alert({
   return (
     <div className={cn(alertVariants({ status, layout }), className)} role="status">
       <div className={cn('flex gap-[12px]', isStacked ? 'w-full items-start' : 'flex-1 items-center')}>
-        <span className={cn('flex shrink-0 items-center justify-center rounded-avatar p-4', statusBadgeClass[key])}>
-          <Icon name={statusIcon[key]} aria-hidden className="text-icon-on-brand" style={{ width: 16, height: 16 }} />
+        <span className="flex shrink-0 items-center justify-center p-4">
+          <Icon name={statusIcon[key]} aria-hidden className={statusIconClass[key]} style={{ width: 24, height: 24 }} />
         </span>
         <div className="flex flex-1 flex-col gap-4">
           <p className="text-base font-semibold">{title}</p>
